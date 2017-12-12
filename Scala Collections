@@ -1,0 +1,53 @@
+Scala provides rich set of collection library. It contains classes and traits to collect data. 
+These collections can be mutable (Scala.collection.mutable)or immutable (Scala.collection.mutable)
+
+Set
+------------------------------------------------------------------------------------------------------
+It is used to store unique elements in the set. 
+It does not maintain any order for storing elements
+
+val variableName:Set[Type] = Set(element1, element2,... elementN) or  
+val variableName = Set(element1, element2,... elementN)  
+
+import scala.collection.immutable._  
+object MainObject{  
+    def main(args:Array[String]){  
+        val set1 = Set()                            // An empty set  
+        val games = Set("Cricket","Football","Hocky","Golf")    // Creating a set with elements  
+        println(set1)  
+        println(games)  
+		
+		println(games.head)             // Returns first element present in the set  
+        println(games.tail)         // Returns all elements except first element.  
+        println(games.isEmpty)          // Returns either true or false  
+    }  
+}  
+
+
+HashMap
+-------------------------------------------------------------------------------------------------------
+import scala.collection.immutable._  
+object MainObject{  
+    def main(args:Array[String]){  
+        var hashMap = new HashMap()  
+        var hashMap2 = HashMap("A"->"Apple","B"->"Ball","C"->"Cat")  
+        println(hashMap)  
+        println(hashMap2)  
+    }  
+}  
+
+import scala.collection.immutable._  
+object MainObject{  
+    def main(args:Array[String]){  
+        var hashMap = HashMap("A"->"Apple","B"->"Ball","C"->"Cat")  
+        hashMap.foreach {  
+            case (key, value) => println (key + " -> " + value)       // Iterating elements  
+        }  
+        println(hashMap("B"))               // Accessing value by using key  
+        var newHashMap = hashMap+("D"->"Doll")  
+        newHashMap.foreach {  
+            case (key, value) => println (key + " -> " + value)  
+        }  
+          
+    }  
+}  
