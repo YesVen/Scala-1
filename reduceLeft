@@ -1,6 +1,6 @@
 Reference from Scala Cookbook from alvinalexander
 
-ReduceByLeft allows us to walk through all of the elements in a Scala sequence, comparing two neighboring elements as you walk through.
+ReduceLeft allows us to walk through all of the elements in a Scala sequence, comparing two neighboring elements as you walk through.
 the collection
 
 
