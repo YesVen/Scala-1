@@ -1,0 +1,9 @@
+val grades = Map("Kim" -> 90,"Al" -> 85,"Melissa" -> 95,"Emily" -> 91,"Hannah" -> 92 )
+import scala.collection.immutable.ListMap
+ListMap(grades.toSeq.sortBy(_._1):_*) // Sort by Key
+ListMap(grades.toSeq.sortBy(_._2):_*) // Sort by Value
+
+// low to high
+scala> ListMap(grades.toSeq.sortWith(_._2 < _._2):_*)
+// high to low
+scala> ListMap(grades.toSeq.sortWith(_._2 > _._2):_*)
