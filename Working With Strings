@@ -1,0 +1,33 @@
+
+scala> val s1 = "Hello"
+s1: java.lang.String = Hello
+
+scala> val s2 = "Hello"
+s2: java.lang.String = Hello
+
+scala> s1 == s2
+res0: Boolean = true
+
+s1.toUpperCase
+s1.toLowerCase
+
+--Empty Strig
+var s1:String = null
+var s2 = null
+
+-- A simple program which takses a input string and compare adjacent letters
+object MyFirstScala {
+	def main (args: Array[String]) {
+	 	   
+	   val name = "Jaames"
+	   val input = name.toLowerCase
+	   var len = name.length
+	   for ( i <- 0 to len - 2){	   
+	        if ( input(i) == input(i+1) ){
+	          println("matched" + input(i) + ":" + input(i+1))
+	        }else{
+	           println("notmatched" + input(i) + ":" + input(i+1))
+	        }	     
+	   } //For
+	} // Main
+} // Class
