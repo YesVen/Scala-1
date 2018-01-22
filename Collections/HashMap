@@ -1,0 +1,27 @@
+HashMap
+-------------------------------------------------------------------------------------------------------
+import scala.collection.immutable._  
+object MainObject{  
+    def main(args:Array[String]){  
+        var hashMap = new HashMap()  
+        var hashMap2 = HashMap("A"->"Apple","B"->"Ball","C"->"Cat")  
+        println(hashMap)  
+        println(hashMap2)  
+    }  
+}  
+
+import scala.collection.immutable._  
+object MainObject{  
+    def main(args:Array[String]){  
+        var hashMap = HashMap("A"->"Apple","B"->"Ball","C"->"Cat")  
+        hashMap.foreach {  
+            case (key, value) => println (key + " -> " + value)       // Iterating elements  
+        }  
+        println(hashMap("B"))               // Accessing value by using key  
+        var newHashMap = hashMap+("D"->"Doll")  
+        newHashMap.foreach {  
+            case (key, value) => println (key + " -> " + value)  
+        }  
+          
+    }  
+}  
