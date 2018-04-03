@@ -1,0 +1,87 @@
+
+scala> val fruits = Traversable("apple", "banana", "orange")
+
+scala> for (f <- fruits) println(f)
+
+scala> for (f <- fruits) println(f.toUpperCase)
+APPLE
+BANANA
+ORANGE
+
+scala> val fruits = Array("apple", "banana", "orange")
+
+scala> for (f <- fruits) {
+| // imagine this required multiple lines
+| val s = f.toUpperCase
+| println(s)
+| }
+APPLE
+BANANA
+ORANGE
+
+//using a counter inside a for loop
+
+scala> for (i <- 0 until fruits.size) println(s"element $i is ${fruits(i)}")
+element 0 is apple
+element 1 is banana
+element 2 is orange
+
+scala> for ((elem, count) <- fruits.zipWithIndex) {
+| println(s"element $count is $elem")
+| }
+element 0 is apple
+element 1 is banana
+element 2 is orange
+
+When using zipWithIndex, consider calling view before zipWithIndex:
+// added a call to 'view'
+for ((elem, count) <- fruits.view.zipWithIndex) {
+println(s"element $count is $elem")
+}
+
+// Zip with Stream 
+scala> for ((elem,count) <- fruits.zip(Stream from 1)) {
+| println(s"element $count is $elem")
+| }
+element 1 is apple
+element 2 is banana
+element 3 is orange
+
+// Range 
+scala> 1 to 3
+res0: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3)
+
+/*
+  The for/yield construct
+  To build a new collection from an input collection, use the for/yield construct
+  Using for/yield like this is known as a for comprehension.
+*/
+
+scala> val fruits = Array("apple", "banana", "orange")
+fruits: Array[java.lang.String] = Array(apple, banana, orange)
+
+scala> val newArray = for (e <- fruits) yield e.toUpperCase
+newArray: Array[java.lang.String] = Array(APPLE, BANANA, ORANGE)
+
+def upperReverse(s: String) = {
+// imagine this is a long algorithm
+s.toUpperCase.reverse
+}
+
+scala> val newArray = for (fruit <- fruits) yield upperReverse(fruit)
+newArray: Array[String] = Array(ELPPA, ANANAB, EGNARO)
+
+// Looping through Map 
+scala> val names = Map("fname" -> "Ed", "lname" -> "Chigliak")
+names: scala.collection.immutable.Map[String,String] =
+Map(fname -> Ed, lname -> Chigliak)
+scala> for ((k,v) <- names) println(s"key: $k, value: $v")
+key: fname, value: Ed
+key: lname, value: Chigliak
+
+==================
+for {
+file <- files
+if file.isFile
+if file.getName.endsWith(".txt")
+} doSomething(file)
