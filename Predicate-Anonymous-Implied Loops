@@ -1,0 +1,52 @@
+Some important concepts to help in understanding Collections
+==============================================================
+• What a predicate is
+• What an anonymous function is
+• Implied loops
+
+A predicate is simply a method, function, or anonymous function that takes one or more
+parameters and returns a Boolean value
+
+  def isEven (i: Int) = if (i % 2 == 0) true else false
+ 
+  (i: Int) => i % 2 == 0
+  
+  shorthand =>   _ % 2 == 0
+ Lets see in action 
+ 
+Welcome to Scala 2.11.11 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_72).
+Type in expressions for evaluation. Or try :help.
+
+scala> def isEven ( i:Int) = if ( i % 2 == 0 ) true else false
+isEven: (i: Int)Boolean
+
+scala> val list = List.range(1, 10)
+list: List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+scala> list.filter(isEven)
+res0: List[Int] = List(2, 4, 6, 8)
+
+scala> list.filter(_%2 == 0)
+res1: List[Int] = List(2, 4, 6, 8)
+
+
+
+  Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\mrachakonda>scala
+Welcome to Scala 2.11.11 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_72).
+Type in expressions for evaluation. Or try :help.
+==============================================================
+            Yield/Implied Loops
+==============================================================
+scala> val list = List.range(1, 10)
+list: List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+scala> for {
+     | e <- list
+     | if e % 2 == 0
+     | } yield e
+res0: List[Int] = List(2, 4, 6, 8)
+
+Collection methods like filter, foreach, map, reduceLeft, and many more have loops built into their algorithms. 
