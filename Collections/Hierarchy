@@ -1,0 +1,21 @@
+Collection
+
+  Traversable  => Traversable Traits an entire collection repeatedly 
+  Iterable     => Defines an iterator loops through collection only once
+      Seq
+        IndexedSeq   
+        LinearSeq
+      Set   
+      Map
+        
+SEQUENCE A DEEPER LOOK
+=========================================
+INDEXEDSEQ - Random Access. Implemented using Vector 
+BUFFER
+LINEARSEQ  - Sequential acess, implemented LinedList
+
+
+
+
+
+           
