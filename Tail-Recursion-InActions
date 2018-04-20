@@ -1,0 +1,16 @@
+
+Tail-Recursion - Recursive function that calls itself as its last action, then we can reuse the stack frame of that function. 
+                 This is called tail recursion.
+Advantage - The stack frame could be reused. A tail recursive function can execute in constant stack space
+
+def factorial(n: Int): Int =
+  if (n == 0) 1 else n * factorial(n - 1)
+  
+  
+def factorial(n: Int): Int = {
+  @tailrec
+  def iter(x: Int, result: Int): Int =
+    if (x == 1 ) result
+    else iter(x - 1 , result * x)
+  iter(n, 1)
+}
